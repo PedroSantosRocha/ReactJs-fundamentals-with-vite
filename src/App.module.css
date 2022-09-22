@@ -1,0 +1,34 @@
+.wrapper {
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* 
+  - Responsividade pra quando o user estiver em um dispositivo mobile.
+  - O max-width indica mais ou menos tamanho das telas de um celular, ou seja, todo dispositivo que tiver width até 768px entra nessa personalização.
+  - Como praticamente todos tamanhos da aplicação estão definidos com REM (unidades de medida relativa) conseguimos alterar os tamanhos com base 
+    na font-size do HTML, definindo com porcentagem. Por ex: 1rem significa 16px, e eu quero que quando eu estiver no mobile a font-size do meu
+    HTML tenha 14px, então ao invés de definir apenas font-size: 14px, eu uso porcentagem para manter o REM funcionando, pra calcular a porcentagem
+    do rem para o tamanho desejado é bem simples, pego o tamanho em px que eu quero que quando estiver no mobile fique, nesse caso 14px, multiplico
+    por 100 e divido pelo tamanho padrão de 1rem, 16px, então vai ficar 14 * 100 / 16 = 87.5, que é o valor que vou definir em font-size.
+  - A parte dos tamanhos definidos em REM é simplesmente para que os tamanhos dos elementos se comportem melhor quando acessado por um celular
+    ou até mesmo quando o usuário define uma fonte maior ou menor do que o padrão, o REM se adapta a isso, aumentando ou diminuindo conforme
+    o tamanho da fonte definida pelo user. No caso do mobile a dimuição dos tamanhos ficam melhor para o usuário, tudo vai se compactar mais
+    facilmente e com uma usabilidade melhor.
+  - Quando mostro o grid-template-columns: 1fr quer dizer que quero mostrar apenas uma coluna no meu grid.
+*/
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
